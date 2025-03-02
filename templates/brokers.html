@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+  
+<style>
+    .upperdiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* border: 2px solid black; */
+        width: 100%;
+    }
+    .card {
+        display: flex;
+        flex-direction: row;
+        width: 85%;
+        /* border: 2px solid rgb(0, 0, 0); */
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+        margin: 10px 0; /* Add some margin for spacing */
+        border-radius: 10px;
+        padding: 15px 15px;
+        gap:10px;
+    }
+    .firstdivv {
+        /* border: 2px solid red; */
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .thirddivv {
+        /* border: 2px solid red; */
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .seconddivv {
+        /* border: 2px solid red; */
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        gap: 20px;
+        font-weight: bold;
+    }
+    .rating {
+        color: #f7c843;
+        font-size: 16px;
+    }
+    .button {
+        background-color: #111a3b;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .second1{
+        /* border: 2px solid red; */
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .second2{
+        /* border: 2px solid red; */
+        width: 100%;
+        display: flex;
+        
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .second3{
+        /* border: 2px solid red; */
+        width: 100%;
+        display: flex;
+        color: #c3c4ce;
+        font-size: 15px;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .second4{
+        /* border: 2px solid red; */
+        width: 100%;
+        display: flex;
+        /* color: #c3c4ce; */
+        font-size: 20px;
+        font-weight: bold;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .maindivv{
+         width: 80%;
+         /* border: 2px solid red; */
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+    }
+</style>
+<div  style="display: flex; flex-direction: column; justify-content:space-evenly ; align-items: center; margin-top: 100px;">
+
+
+    <div class="maindivv">
+        <h1>Stock Brokers</h1>
+        <div style="height: 5px; width: 230px; background-color: #00eaa1; color: #00eaa1;">       </div>
+    </div>
+      <div class="upperdiv">
+          {% for broker in brokerdata %}
+          <div class="card">
+              <div class="firstdivv">
+                  <img src="/media/{{broker.icons}}" alt="Broker Image" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+              </div>
+              <div class="seconddivv">
+                  <div class="second1">
+                      <div class="title">
+                          <div style="font-size: 30px;">{{broker.company_name}}</div>
+                          <div class="rating">★({{broker.rating}}/10)</div>
+                      </div>
+                     
+            
+                  </div>
+                  <div class="second2">
+      
+                      <div style="background-color: rgb(227,231,251); border-radius: 10%; padding: 5px;">Discount Broker</div>
+                      <div style="display: flex; justify-content: space-evenly; align-items: center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20">
+                          <path fill="#00eaa1" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                      </svg>Equity</div>
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20">
+                          <path fill="#00eaa1" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                      </svg>Commodity</div>
+                      <div><i class="fa-solid fa-circle-xmark" style="color: #c9cfdc;"></i>
+                          Currency</div>
+                      <div><i class="fa-solid fa-circle-xmark" style="color: #c9cfdc;"></i>Futures</div>
+                      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20">
+                          <path fill="#00eaa1" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                      </svg>Options</div>
+                      <!-- <div class="title">
+                          <div>Groww </div>
+                          <div><span class="rating">★(3.1/10)</span></div>
+                      </div>
+                      <button class="button" style="background-color: rgb(10,13,57); color: white;">detail</button> -->
+            
+                  </div>
+                  <div class="second3">
+                      <div>Account Opening Charge</div>
+                      <div>Account Maintenance Charge</div>
+                      <div>Equity Delivery Brokerage</div>
+                      {% comment %} <div>Equity Intraday Brokerage</div> {% endcomment %}
+            
+                  </div>
+                  <div class="second4">
+                      <div>{{broker.Opening_charge}}</div>
+                      <div style="display: flex; justify-content: space-between; align-items: center;">{{broker.maintanance_charge}}</div>
+                      <div style="display: flex; justify-content: space-between; align-items: center;">{{broker.percent_delivery_brokage}}%</div>
+                      {% comment %} <div style="display: flex; justify-content: space-between; align-items: center;">{{broker.percent_interaday_brokage}}%</div> {% endcomment %}
+            
+                  </div>
+                  
+              </div>
+              <div class="thirddivv" >
+                  <div style="height: 50%; display: flex; justify-content: flex-end; width: 100%; align-items: center; "> <button class="button" style="background-color: rgb(10,13,57); color: white;">Details</button></div>
+                  <div style="display: flex; flex-direction: column; height: 50%; ">
+                      <div style="color: #c3c4ce;
+              font-size: 15px; margin-top: 12px;">Equity Intraday Brokerage</div>
+                      <div style="font-size: 20px; display: flex; justify-content: center; align-items: center;
+              font-weight: bold;">{{broker.percent_interaday_brokage}}%</div>
+                  </div>
+                 
+                  <!-- <img src="/media/{{broker.icons}}" alt="Broker Image" style="width: 80px; height: 80px; border-radius: 10%; object-fit: cover;"> -->
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+
+
+
+
+</div>
+
+
+{% endblock %}

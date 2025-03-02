@@ -1,0 +1,243 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>devtrade</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/index.css" />
+  <link rel="stylesheet" href="/static/css/ipo.css" />
+</head>
+<body>
+  <div class="header d-flex justify-content-evenly align-items-center" style="  position: fixed;
+  top: 0;
+  left: 0;">
+    <div class="firstdiv">
+      <a href="/" class="logo d-flex align-items-center me-auto "><img style="border-radius: 50%;" src="static/assets/logo.jpg" alt="" />
+        <h1 class="sitename">DevTrade</h1>
+      </a>
+    </div>
+    <div class="seconddiv">
+      <nav id="navmenu" class="navmenu">
+        <ul class="list-unstyled d-flex flex-row justify-content-evenly">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/ipoupcomming/">IPO</a></li>
+          <li>
+            <a href="/community/" target="_blank">Community</a>
+          </li>
+          <li class="dropdown">
+            <a href="/broker/"><span>Brokers</span>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/ravi-gupta-44bb451b1/">Aboutus</a>
+          </li>
+          <li>
+            <a href="https://www.tradingview.com/chart/">Tradechart&nbsp;<span
+                class="badge text-bg-primary">•&nbsp;Live</span></a>
+          </li>
+        </ul>
+        <i id="bi" class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+    {% if user.is_authenticated %}
+
+    <div class="thirddivlog">
+      <i class="fa-solid fa-user"></i>
+      <a href="/logout/">Logout</a>
+      </button>
+    </div>
+    {% else %}
+    <div class="thirddiv">
+
+      <a href="/signin/" style=" text-decoration: none;">
+        <button type="button" class="btn-getstarted">
+            Sign In
+        </button>
+    </a>
+     
+      <a href="/admin/" style="text-decoration: none;">
+        <button type="button" class="btn-getstarted">
+            Admin
+        </button>
+    </a>
+      
+      <img src="static/assets/verticanav.svg" width="30" height="30" />
+    </div>
+    {% endif %}
+  </div>
+  {% block content %}{% endblock content %}
+  <div class="footer" style=" margin-left: 150px;">
+
+    <table class="table">
+      <thead>
+        <tr style="  display: flex;  justify-content: left; ">
+          <td>Resources</td>
+          <td>Company</td>
+          <td>Resources</td>
+          <td>Resources</td>
+          <td>Resources</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a style="text-decoration: none;" href="">Trading View</a></td>
+          <td><a style="text-decoration: none;" href="">Careers</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+        </tr>
+        <tr>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">About US</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+        </tr>
+        <tr>
+          <td><a style="text-decoration: none;" href="">e-Voting CDSL</a></td>
+          <td><a style="text-decoration: none;" href="">Contact Us</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">Refund Policy</a></td>
+        </tr>
+        <tr>
+          <td><a style="text-decoration: none;" href="">e-Voting NSDL</a></td>
+          <td><a style="text-decoration: none;" href="">Blogs</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">Privacy Policy</a></td>
+        </tr>
+        <tr>
+          <td><a style="text-decoration: none;" href="">Market Timings</a></td>
+          <td><a style="text-decoration: none;" href="">Careers</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">NSE Holidays</a></td>
+          <td><a style="text-decoration: none;" href="">Terms & Conditions</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mainfooter"
+    style=" margin-left: 150px; display: flex; gap: 30px; justify-content: space-between; padding: 20px 20px; width: 80%;">
+    <div class="mainfooter1"
+      style="display: flex; flex-direction: column; gap: 10px;  justify-content: space-evenly; align-items:start; padding: 10px 10px; ">
+      <div class="footercontent1"
+        style="  display: flex; justify-content: space-evenly; gap: 10px; align-items: center;"><img
+          src="static/assets/x.svg" alt=""><img src="static/assets/yt.svg" alt=""><img src="static/assets/facebnook.svg"
+          alt=""><img src="static/assets/insta.svg" alt=""><img src="static/assets/linkedin.svg" alt=""><img
+          src="static/assets/telegram.svg" alt=""></div>
+      <div class="footercontent2" style="display: flex; justify-content: space-between; align-items: center;"> <a
+          href="#services" style="color:rgba(45, 58, 76, 1); text-decoration: none;" class=" d-flex justify-cont-evenly align-items-center me-auto">
+
+  <a href="#services" style="text-decoration: none;" class="logo d-flex align-items-center me-auto "><img style="border-radius: 50%;" src="static/assets/logo.jpg" alt="" />
+    <h3 class="sitename" >DevTrade</h3>
+  </a>
+        </a></div>
+      <div class="footercontent3">
+        <p>India , Delhi</p>
+        <p>Street:245,Houseno:34</p>
+      </div>
+      <div class="footercontent4">
+        <p>India Stock Market</p>
+        <p>Invest today grow tomarrow eith SIP</p>
+      </div>
+      <div class="footercontent5"><img src="" alt=""></div>
+    </div>
+    <div class="mainfooter2" style="padding: 20px 20px; ;">
+      <div class="footercontent2-1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Rem, aliquid. cupiditate aperiam minus.</p>
+      </div>
+      <div class="footercontent2-2">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <b style="color: blue;">hello@devtrade.in</b>
+          Eaque quo accusamus dolorum eveniet laboriosam
+          porro, nemo ex repellendus assumenda sapiente?<b style="color: blue;">cto@devtrade.in</b></p>
+      </div>
+      <div class="footercontent2-3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptates, atque qui error deleniti
+          voluptatibus deserunt iure animi iusto doloribus ea obcaecati tenetur alias ipsum porro similique iste
+          molestiae praesentium adipisci voluptate perspiciatis ipsam cupiditate consequuntur. Impedit doloribus, qui
+          non nisi perspiciatis unde id commodi culpa eos nobis repellendus necessitatibus officiis quaerat alias
+          natus, sed autem molestiae exercitationem! Exercitationem possimus veniam sint. Voluptas tenetur nostrum
+
+          incidunt odio placeat?</p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom"
+    style=" margin-left: 150px; display: flex; width: 80%; padding: 20px 20px ; justify-content: space-between; align-items: center;">
+    <p>All Right reserved</p>
+    <p>Made with ❤️ in Pune, Maharashtra</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Remove the JavaScript for toggling dropdowns
+    document
+      .querySelector(".mobile-nav-toggle")
+      .addEventListener("click", () => {
+        document.querySelector("#navmenu").classList.toggle("show");
+      });
+  </script>
+</body>
+
+</html> 

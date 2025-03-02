@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="mainpartipo" style="padding: 30px 30px; display: flex; flex-direction: column; justify-content: space-evenly; gap: 10px; align-items: center;">
+    <style>
+        .mainpartipo1 {
+            display: flex;
+            width: 90%;
+            flex-direction: column;
+            padding: 10px;
+            font-size: 18px;
+            margin-top: 50px;
+        }
+    
+        .fixed-text {
+            font-weight: bold;
+        }
+    
+        .typing-text {
+            color: green;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+    .card1 {
+        width: 90%;
+    }
+   
+    .mainpartipo2{
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+    </style>
+   <div class="mainpartipo1">
+    <h3 style="font-weight: bold;">UpComming IPO</h3>
+    <p>
+        <span class="fixed-text">Companies that have filled for an IPO with SEBI. Few details might be disclosed by the companies later.</span>
+        <span class="typing-text"></span>
+    </p>
+</div>
+
+    <div class="mainpartipo2"
+        style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-evenly;  align-items: center; width: 90%;">
+        {% for ipo in ipoupcommingdata %}
+        <div class="card1" style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; background-color:  rgba(255, 255, 255, 1);
+        ;  width: 25%;">
+                    <div class="card1part1"
+                        style=" display: flex; gap: 60px;  justify-content: space-around; align-items: center;">
+                       
+                        <div class="broker-image" style="display: flex; border: 1px solid grey; margin-top: 13px; justify-content: center; border-radius: 10%  ">
+                            <img src="/media/{{ipo.icons}}" alt="Broker Image" style="width: 80px; height: 80px; border-radius: 10%; object-fit: cover;">
+                        </div>
+                        
+                        <div><div>{{ipo.company_name}}</div><a style="text-decoration: none;" href="{{ ipo.company_link }}">about company </a></div>
+        
+                    </div>
+                    <div class="card1part2"
+                        style="margin-top: 10px;  display: flex; gap: 10px; justify-content: space-evenly; align-items: center;">
+                        <div class="card1part2-1" style=" align-items: center;">
+                            <p style="font-weight: bold;">PRICE BAND</p>
+                            <p >{{ ipo.price_band }}</p>
+                        </div>
+                        <div class="card1part2-2" style=" align-items: center; color: green;">
+                            <p style="font-weight: bold;">OPEN</p>
+                            <p >{{ ipo.open_date }}</p>
+                        </div>
+                        <div class="card1part2-3" style=" align-items: center; color: red;">
+                            <p style="font-weight: bold;">CLOSE</p>
+                            <p >{{ ipo.close_date }}</p>
+                        </div>
+                    </div>
+                    <div class="card1part3" style="    display: flex; gap: 10px; 
+                        justify-content: space-evenly; align-items: start;">
+                        
+                        <div class="card1part3-2" style=" align-items: center;">
+                            <p style="font-weight: bold;">Price</p>
+                            <p >{{ ipo.issue_type }}</p>
+                        </div>
+                        <div class="card1part3-1" style=" align-items: center;">
+                            <p style="font-weight: bold;">Return Yr</p>
+                            <p >{{ ipo.issue_size }}</p>
+                        </div>
+                        <div class="card1part3-3" style=" align-items: center;">
+                            <p style="font-weight: bold;">Listing DATE</p>
+                            <p >{{ ipo.listing_date }}</p>
+                        </div>
+                    </div>
+                    <div class="card1part4" style="border: none; padding: 15px 15px 15px 15px;  display: flex; gap: 10px; ">
+                        <button style="border-radius: 5px; " type="button" class="btn btn-outline-danger">cancel IPO</button><button
+                            type="button" style="border-radius: 5px; color: white;   background-color: rgb(55, 73, 240);
+        ;" class="btn ">Start IPO</button>
+                    </div>
+                </div>
+        
+        {% endfor %}
+
+
+    </div>
+
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="faq-container" style="  max-width: 1100px;
+    margin: 50px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1 style=" text-align: left;
+    margin-bottom: 20px;">Frequently Asked Questions about IPOs</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, cum?</p>
+    <div class="faq-item" style="border-bottom: 1px solid #ddd;
+    padding: 10px 0;">
+
+
+        {% for n in faqadmindata %}
+        <div class="question" style=" cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;" onclick="toggleAnswer(0)">
+            <span style=" font-weight: bold;">{{n.question}}</span>
+            <span style=" font-weight: bold;" class="toggle">-</span>
+        </div>
+        <div style=" display: none;
+    padding: 10px 0;" class="answer" id="answer0">
+            <ol>
+                <li>{{n.ans1}}</li>
+                <li>{{n.ans2}}</li>
+                <li>{{n.ans3}}</li>
+                <li>{{n.ans4}}</li>
+                <li>{{n.ans5}}</li>
+            </ol>
+        </div>
+        {% endfor %}
+    </div>
+
+  
+</div>
+<script>
+
+   
+
+function toggleAnswer(index) {
+        const answer = document.getElementById(`answer${index}`);
+        const toggle = answer.previousElementSibling.querySelector('.toggle');
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            toggle.textContent = '+';
+        } else {
+            answer.style.display = 'block';
+            toggle.textContent = '-';
+        }
+    }
+</script> {% endcomment %}
+
